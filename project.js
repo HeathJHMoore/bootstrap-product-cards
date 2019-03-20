@@ -2,7 +2,7 @@ const products = [
     {
         title: 'product 1',
         description: 'bla bla bla',
-        imageUrl: '',
+        imageUrl: 'https://picsum.photos/200/300',
         size: '4" x 4"',
         weight: '8 oz.',
         prize1: '$1.99',
@@ -14,7 +14,7 @@ const products = [
     {
         title: 'product 2',
         description: 'bla bla bla',
-        imageUrl: '',
+        imageUrl: 'https://picsum.photos/200/300',
         size: '4" x 4"',
         weight: '8 oz.',
         prize1: '$1.99',
@@ -26,7 +26,7 @@ const products = [
     {
         title: 'product 3',
         description: 'bla bla bla',
-        imageUrl: '',
+        imageUrl: 'https://picsum.photos/200/300',
         size: '4" x 4"',
         weight: '8 oz.',
         prize1: '$1.99',
@@ -38,7 +38,7 @@ const products = [
     {
         title: 'product 4',
         description: 'bla bla bla',
-        imageUrl: '',
+        imageUrl: 'https://picsum.photos/200/300',
         size: '4" x 4"',
         weight: '8 oz.',
         prize1: '$1.99',
@@ -50,7 +50,7 @@ const products = [
     {
         title: 'product 5',
         description: 'bla bla bla',
-        imageUrl: '',
+        imageUrl: 'https://picsum.photos/200/300',
         size: '4" x 4"',
         weight: '8 oz.',
         prize1: '$1.99',
@@ -70,8 +70,18 @@ const printToDom = (divID, textToPrint) => {
 const domStringBuilder = (array) => {
     let domString = ``;
     array.forEach((member) => {
-        domString += `<h3>${member.title}</h3>`;
+        domString += `<div class="col-4 product">`
+        domString += ` <div class="card" style="width: 18rem;">`
+        domString += ` <div class="card-header">${member.title}</div>`
+        domString += `  <div class="card-body">`
+        domString += `  <img src="${member.imageUrl}" class="card-img-top" alt="...">`
+        domString += `   <p class="card-text">${member.description}</p>`
+        domString += `   <p class="card-text">${member.size}</p>`
+        domString += `  </div>`
+        domString += ` </div>`
+        domString += `</div>`
     });
+    domString = `<div class='row'>${domString}</div>`;
     printToDom('container', domString);
 };
 
